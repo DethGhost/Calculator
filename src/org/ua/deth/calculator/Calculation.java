@@ -3,12 +3,9 @@ public class Calculation {
     private double firstNum;
     private double secondNum;
 
-
     public Calculation() {
-
         firstNum = 0;
         secondNum = 0;
-
     }
 
     //Calculate the values
@@ -16,16 +13,12 @@ public class Calculation {
         switch (operator.toLowerCase()) {
             case "-":
                 return first - second;
-
             case "+":
                 return first + second;
-
             case "/":
                 return first / second;
-
             case "*":
                 return first * second;
-
         }
         return 0;
     }
@@ -48,8 +41,6 @@ public class Calculation {
         } else {
             return "Check the operator value. Allowed: (+.-.*./)";
         }
-
-
     }
 
     public String goCalculate(String first, String second, String operator) {
