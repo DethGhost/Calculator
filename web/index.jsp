@@ -1,11 +1,4 @@
 <%@ page import="org.ua.deth.calculator.Calculation" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: DethGhost
-  Date: 15.06.2016
-  Time: 10:05
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,24 +6,17 @@
 </head>
 <body>
 <%
-    String first = "";
-    String second = "";
-    String operation = "";
-
     if (request.getParameter("first") != null && request.getParameter("second") != null
             && request.getParameter("operator") != null) {
-        first = request.getParameter("first");
-        second = request.getParameter("second");
-        operation = request.getParameter("operator");
-
 %>
 
 <%="You try: "%>
-<%= "First: "+first+" Operator: "+operation+" Second: "+second%>
+<%= "First: " + request.getParameter("first") + " Operator: " + request.getParameter("operator")
+        + " Second: " + request.getParameter("second")%>
 <br/>
 <%= "Answer: "%>
 <%=
-new Calculation().goCalculate(first, second, operation)
+new Calculation().goCalculate(request.getParameter("first"), request.getParameter("second"), request.getParameter("operator"))
 %><%
 } else {
 %><h1>Check the entry parameters</h1>

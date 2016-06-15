@@ -1,21 +1,17 @@
 package org.ua.deth.calculator;
-
-/**
- * Created by DethGhost on 15.06.2016.
- */
 public class Calculation {
     private double firstNum;
     private double secondNum;
-    private double total;
+
 
     public Calculation() {
-        total = 0;
+
         firstNum = 0;
         secondNum = 0;
 
     }
 
-    //Подсчет
+    //Calculate the values
     private double calculate(double first, double second, String operator) {
         switch (operator.toLowerCase()) {
             case "-":
@@ -34,29 +30,29 @@ public class Calculation {
         return 0;
     }
 
-    // логика, проверка на ошибки
+    // checking values and initialization
     private String logic(String first, String second, String operator) {
-        if(operator.equalsIgnoreCase("/") || operator.equalsIgnoreCase("-") || operator.equalsIgnoreCase("+")
+        if (operator.equalsIgnoreCase("/") || operator.equalsIgnoreCase("-") || operator.equalsIgnoreCase("+")
                 || operator.equalsIgnoreCase("*")) {
             if (first != "" && second != "" && operator != "") {
                 try {
                     firstNum = Double.parseDouble(first);
                     secondNum = Double.parseDouble(second);
                 } catch (NumberFormatException e) {
-                    return "Check values!";
+                    return "Check values! Allowed only digits";
                 }
-                total = calculate(firstNum, secondNum, operator);
-                if (Double.isInfinite(total)) {
+                if (Double.isInfinite(calculate(firstNum, secondNum, operator))) {
                     return "Division by zero";
-                } else return Double.toString(total);
+                } else return Double.toString(calculate(firstNum, secondNum, operator));
             } else return "Insert some  data";
-        }else {
+        } else {
             return "Check the operator value. Allowed: (+.-.*./)";
         }
 
 
     }
-    public String goCalculate(String first, String second, String operator){
-        return logic(first,second,operator);
+
+    public String goCalculate(String first, String second, String operator) {
+        return logic(first, second, operator);
     }
 }
