@@ -31,10 +31,10 @@ public class Calculation {
     }
 
     // checking values and initialization
-    private String logic(String first, String second, String operator) {
+    private String getResult(String first, String second, String operator) {
         if (operator.equalsIgnoreCase("/") || operator.equalsIgnoreCase("-") || operator.equalsIgnoreCase("+")
                 || operator.equalsIgnoreCase("*")) {
-            if (first != "" && second != "" && operator != "") {
+            if (!first.equalsIgnoreCase("") && !second.equalsIgnoreCase("") && !operator.equalsIgnoreCase("")) {
                 try {
                     firstNum = Double.parseDouble(first);
                     secondNum = Double.parseDouble(second);
@@ -53,6 +53,6 @@ public class Calculation {
     }
 
     public String goCalculate(String first, String second, String operator) {
-        return logic(first, second, operator);
+        return getResult(first, second, operator);
     }
 }
